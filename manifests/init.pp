@@ -6,7 +6,7 @@ class mdbtools {
   require homebrew
   
   exec { "install glib":
-    command => "brew boxen-install",
+    command => "brew boxen-install glib",
     before  => Package["mdbtools"],
   }
   
