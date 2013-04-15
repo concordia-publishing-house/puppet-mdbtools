@@ -4,6 +4,8 @@
 
 class mdbtools {
   require homebrew
+  require libtool
+  require automake
   include boxen::config
 
   # fixes libffi dependency by rolling back to v3.0.11
