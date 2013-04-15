@@ -6,11 +6,11 @@ class mdbtools {
   require homebrew
   require libffi
   include boxen::config
-  
-  exec { "install glib":
-    command => "brew boxen-install glib",
-    before  => Package["mdbtools"],
-    cwd     => ${boxen::config::home}
+
+  # fixes libffi dependency by rolling back to v3.0.11
+  package { 'https://raw.github.com/mxcl/homebrew/d1319dfa0662af5bb18cf530061adf64cc59c349/Library/Formula/libffi.rb':
+    ensure   => installed,
+    provider => homebrew,
   }
   
   package { 'mdbtools':
