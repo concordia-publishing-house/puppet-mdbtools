@@ -13,6 +13,12 @@ class mdbtools {
     before => Package['mdbtools'],
     require => Exec['brew update'],
   }
+
+  exec { 'git pull git@github.com:KendallPark/homebrew.git deparallelize-mdbtools':
+    cwd    => "${boxen::config::homebrewdir}",
+    before => Package['mdbtools'],
+    require => Exec['brew update'],
+  }
   
   package { 'mdbtools':
     ensure   => installed,
