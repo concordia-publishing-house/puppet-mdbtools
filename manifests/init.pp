@@ -10,6 +10,7 @@ class mdbtools {
   exec { 'git pull git@github.com:KendallPark/homebrew.git deparallelize-libffi':
     cwd    => "${boxen::config::homebrewdir}",
     before => Package['mdbtools'],
+    require => Exec['install-homebrew'],
   }
   
   package { 'mdbtools':
